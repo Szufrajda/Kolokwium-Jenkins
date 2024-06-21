@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Klonowanie repozytorium') {
             steps {
-                git 'https://github.com/Szufrajda/Kolokwium-Jenkins.git'
+                git branch: 'main', url: 'https://github.com/Szufrajda/Kolokwium-Jenkins.git'
             }
         }
         stage('Instalacja zależności') {
