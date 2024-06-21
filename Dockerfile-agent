@@ -1,0 +1,23 @@
+# Użyj obrazu Node.js jako podstawy
+FROM node:14
+
+# Zainstaluj niezbędne pakiety
+RUN apt-get update && apt-get install -y git
+
+# Instalacja JDK dla potrzeb Jenkinsa
+RUN apt-get install -y openjdk-11-jdk
+
+# Utwórz użytkownika Jenkins
+RUN useradd -m -d /home/jenkins -s /bin/bash jenkins
+
+# Ustawienia użytkownika Jenkins
+USER jenkins
+WORKDIR /home/jenkins
+
+# Ustawienie zmiennej środowiskowej Java Home
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
+
+# Eksponowanie portów (opcjonalne, jeśli wymagane)
+EXPOSE 3000 8000
+
+CMD ["bash"]

@@ -1,0 +1,7 @@
+# Użyj oficjalnego obrazu Jenkinsa z Docker Hub jako podstawy
+FROM jenkins/jenkins:latest
+
+# Instalacja wtyczki Blue Ocean za pomocą jenkins-cli
+RUN jenkins-plugin-cli --plugins blueocean
+
+
