@@ -1,0 +1,14 @@
+# Użyj oficjalnego obrazu Jenkinsa z Docker Hub jako podstawy
+FROM jenkins/jenkins:latest
+
+# Instalacja wtyczki Blue Ocean za pomocą jenkins-cli
+RUN jenkins-plugin-cli --plugins blueocean
+
+# Można również dodać inne wtyczki Jenkinsa, jeśli są potrzebne
+# RUN jenkins-plugin-cli --plugins PLUGIN_ID1,PLUGIN_ID2,...
+
+# Opcjonalnie, można dodać konfigurację lub skrypty inicjalizacyjne
+# COPY customizations /usr/share/jenkins/ref/init.groovy.d/
+
+# Ewentualnie, można zmodyfikować konfigurację Jenkinsa
+# COPY custom_config.xml /var/jenkins_home/config.xml
